@@ -15,8 +15,7 @@ export class AnimQueue {
     }
 
     delete(f) {
-        this._queue.delete(f);
-        if (this._queue.size === 0) {
+        if (this._queue.delete(f) && this._queue.size === 0) {
             window.cancelAnimationFrame(this._req);
             this._req = -1;
         }
