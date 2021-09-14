@@ -1,4 +1,9 @@
 export class AnimQueue {
+    static #global;
+    static get global() {
+        return this.#global ??= new this();
+    }
+    
     #req = -1;
     #queue = new Set();
 
